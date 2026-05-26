@@ -156,7 +156,7 @@ AD_TYPES = [
 ]
 
 html_slots = []
-for i in range(1, 1001):
+for i in range(1, 11):
     ad_type = AD_TYPES[i % len(AD_TYPES)]
     
     if ad_type['isNative']:
@@ -180,8 +180,8 @@ massive_yield_mine = f"""
 <section id="massive-ad-grid" style="padding: 60px 40px; background: var(--dark2); border-top: 1px solid var(--border);">
   <div class="fade-in" style="text-align: center; margin-bottom: 40px;">
     <div class="section-tag">Massive Yield Mine</div>
-    <h2 class="section-title">1,000 Live<br>Ad Slots</h2>
-    <p class="section-desc">Arranged in a high-density, automated responsive grid. Duplicated systematically up to 1,000 active nodes utilizing isolated iframe sandboxes and native lazy loading to maintain 60 FPS performance and avoid browser render overhead.</p>
+    <h2 class="section-title">10 Live<br>Ad Slots</h2>
+    <p class="section-desc">Arranged in a high-density, automated responsive grid. Duplicated systematically up to 10 active nodes utilizing isolated iframe sandboxes and native lazy loading to maintain 60 FPS performance and avoid browser render overhead.</p>
   </div>
   <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; padding: 20px; border-radius: 16px; border: 1px solid var(--border); background: var(--dark);">
 {chr(10).join(html_slots)}
