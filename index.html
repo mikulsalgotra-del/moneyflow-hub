@@ -1923,20 +1923,29 @@
   <p style="margin-top:8px; font-size:11px;">For informational purposes. RPM and income figures are industry averages and may vary.</p>
 </footer>
 
-<!-- ===================== 5. AD_STICKY_FOOTER (mobile only) ===================== -->
-<div class="ad-placeholder ad-sticky-footer" id="ad-sticky-footer">
-  <div style="display:flex; align-items:center; justify-content:space-between; width:100%; max-width:400px; padding:0 16px;">
-    <svg class="ad-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-    </svg>
-    <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ AD_STICKY_FOOTER — 320×50 / 468×60 mobile banner ]</span>
-    <button id="ad-sticky-close" style="background:none; border:none; color:var(--muted); cursor:pointer;" aria-label="Close Ad">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
+<!-- ===================== 5. AD_STICKY_FOOTER (Active Ad Unit) ===================== -->
+<div class="ad-sticky-footer" id="ad-sticky-footer" style="border-top: 1px solid var(--border);">
+  <!-- Centered Active Ad Unit -->
+  <div style="width: 320px; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+    <script>
+      atOptions = {
+        'key' : 'bf287e3ffc1f6bf298eded384df3990f',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/bf287e3ffc1f6bf298eded384df3990f/invoke.js"></script>
   </div>
+  
+  <!-- Absolute Positioned Close Button to bypass iframe overlays -->
+  <button id="ad-sticky-close" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(18,18,24,0.85); border: 1px solid var(--border); color: var(--gold); border-radius: 6px; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 101;" aria-label="Close Advertisement" title="Close Ad">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
 </div>
 
 <!-- =========================================================================
