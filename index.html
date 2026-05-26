@@ -1073,7 +1073,7 @@
       <line x1="8" y1="21" x2="16" y2="21"></line>
       <line x1="12" y1="17" x2="12" y2="21"></line>
     </svg>
-    <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ AD_TOP_LEADERBOARD — 728×90 ]</span>
+    <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ AD_TOP_LEADERBOARD — 728×90 / 468×60 / 320×50 Landscape Banner ]</span>
   </div>
 </div>
 
@@ -1366,8 +1366,8 @@
             <svg class="ad-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
             </svg>
-            <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ AD_IN_CONTENT_NATIVE — 300×250 ]</span>
-            <span style="font-size:9px; color:var(--muted);">Sponsored Content Banner</span>
+            <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700; text-align:center; padding: 0 10px;">[ AD_IN_CONTENT_NATIVE — 300×250 / Native Banner ]</span>
+            <span style="font-size:9px; color:var(--muted); text-align:center;">Medium Rectangle or Native Feed Widget</span>
           </div>
 
           <button class="btn-action" onclick="CryptoCalculator.calculateCrypto()">
@@ -1593,15 +1593,15 @@
     <!-- Aside Skyscraper ad Column on Desktop -->
     <aside style="display:flex; flex-direction:column; gap:24px;">
       <!-- [AD_RIGHT_SKYSCRAPER] Box -->
-      <div class="ad-placeholder ad-skyscraper relative" id="ad-right-skyscraper" style="margin:0 auto;">
+      <div class="ad-placeholder ad-skyscraper relative" id="ad-right-skyscraper" style="margin:0 auto; max-width:300px; width:100%;">
         <svg class="ad-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="23 7 16 12 23 17 23 7"></polygon>
           <rect x="1" y="5" width="15" height="14" rx="2"></rect>
         </svg>
         <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700; text-align:center; padding: 0 10px;">
-          [ AD_RIGHT_SKYSCRAPER — 300×600 ]
+          [ AD_RIGHT_SKYSCRAPER — 300×600 / 160×600 / 160×300 Skyscraper ]
         </span>
-        <span style="font-size:9px; color:var(--muted);">High CPM Sidebar Placement</span>
+        <span style="font-size:9px; color:var(--muted); text-align:center; padding: 0 10px;">Supports Wide, Standard or Mini Skyscraper formats</span>
       </div>
 
       <!-- Quick Tips Box styled native -->
@@ -1609,14 +1609,61 @@
         <h3 style="font-family:'Bebas Neue', sans-serif; font-size:20px; display:flex; align-items:center; gap:8px;">
           <span>💡</span> Yield Pro Tips
         </h3>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:11px; color:var(--muted); margin-top:12px;">
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:11px; color:var(--muted); margin-top:12px; margin-bottom:16px;">
           <li>◆ Diff increases trigger payout compression. Track hash networks relative to core mining difficulty indexes.</li>
           <li>◆ Electricity expense is your critical ROI lever. Lower rates significantly enhance profit yields.</li>
           <li>◆ Stack monetization strategies (e.g. ad networks plus affiliate products) to achieve 3x earnings.</li>
         </ul>
+        <!-- [ SMARTLINK / HIGH-CPM DIRECT LINK ] CTA button slot -->
+        <a href="#" class="smartlink-trigger btn-action" style="font-size:14px; padding:10px; display:flex; width:100%; border-radius:6px; background:rgba(245,200,66,0.1); border:1px solid var(--gold); color:var(--gold); font-family:'Space Mono', monospace; text-transform:uppercase; font-weight:700; text-align:center; justify-content:center; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000';" onmouseout="this.style.background='rgba(245,200,66,0.1)'; this.style.color='var(--gold)';">
+          🔗 Smartlink Direct Offer
+        </a>
       </div>
     </aside>
 
+  </div>
+</section>
+
+<!-- ===================== [AD_NATIVE_BANNER] RECOMENDATION GRID ===================== -->
+<section style="padding: 20px 40px 60px;">
+  <div class="ad-placeholder w-full p-8 relative fade-in" id="ad-native-banner" style="border: 2px dashed rgba(245, 200, 66, 0.35); background: rgba(245, 200, 66, 0.02); border-radius: 16px;">
+    <div style="display:flex; align-items:center; gap:8.5px; margin-bottom:20px; width:100%;">
+      <svg class="ad-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+      </svg>
+      <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ NATIVE_BANNER — Recommended Content Grid Widget ]</span>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" style="width:100%; opacity:0.55; pointer-events:none;">
+      <!-- Native Recommended item 1 -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+        <div style="height:85px; background:var(--dark3); border-radius:6px;"></div>
+        <div style="height:10px; width:85%; background:var(--muted); border-radius:4px;"></div>
+        <div style="height:10px; width:50%; background:var(--border); border-radius:4px;"></div>
+      </div>
+      <!-- Native Recommended item 2 -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+        <div style="height:85px; background:var(--dark3); border-radius:6px;"></div>
+        <div style="height:10px; width:75%; background:var(--muted); border-radius:4px;"></div>
+        <div style="height:10px; width:60%; background:var(--border); border-radius:4px;"></div>
+      </div>
+      <!-- Native Recommended item 3 -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+        <div style="height:85px; background:var(--dark3); border-radius:6px;"></div>
+        <div style="height:10px; width:90%; background:var(--muted); border-radius:4px;"></div>
+        <div style="height:10px; width:40%; background:var(--border); border-radius:4px;"></div>
+      </div>
+      <!-- Native Recommended item 4 -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+        <div style="height:85px; background:var(--dark3); border-radius:6px;"></div>
+        <div style="height:10px; width:65%; background:var(--muted); border-radius:4px;"></div>
+        <div style="height:10px; width:55%; background:var(--border); border-radius:4px;"></div>
+      </div>
+    </div>
+    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
   </div>
 </section>
 
@@ -1878,7 +1925,7 @@
     <svg class="ad-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
     </svg>
-    <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ AD_STICKY_FOOTER — 320×50 ]</span>
+    <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ AD_STICKY_FOOTER — 320×50 / 468×60 mobile banner ]</span>
     <button id="ad-sticky-close" style="background:none; border:none; color:var(--muted); cursor:pointer;" aria-label="Close Ad">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -2478,6 +2525,50 @@
       switchCategory
     };
   })();
+</script>
+
+<!-- ===================== FLOATING SOCIAL_BAR / IN-PAGE PUSH PLACEMENT ===================== -->
+<div class="ad-placeholder" id="ad-social-bar" style="position: fixed; bottom: 80px; right: 20px; width: 270px; height: 115px; border: 2px dashed rgba(245,200,66,0.5); background: rgba(13,13,18,0.96); border-radius: 12px; z-index: 98; padding: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; transition: transform 0.4s ease, opacity 0.4s ease;">
+  <div style="display:flex; align-items:center; justify-content:space-between; width:100%; margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:6.5px;">
+      <span style="font-size:14px; animation: pulse 2s infinite;">💬</span>
+      <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ SOCIAL_BAR / IN-PAGE PUSH ]</span>
+    </div>
+    <button onclick="dismissSocialBar()" style="background:none; border:none; color:var(--muted); cursor:pointer; display:flex; align-items:center;" aria-label="Close Ad">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div style="font-size:9.5px; color:var(--muted); line-height:1.45; width:100%;">
+    High-CPM In-Page Push Floating Social Banner. Simulates organic chat boxes.
+  </div>
+  <span style="position: absolute; bottom: 4px; right: 8px; text-transform: uppercase; font-family:'Space Mono', monospace; font-size: 7px; color: rgba(245, 200, 66, 0.4);">Promoted Link</span>
+</div>
+
+<script>
+  // Close Social Bar float action
+  function dismissSocialBar() {
+    const bar = document.getElementById('ad-social-bar');
+    if (bar) {
+      bar.style.transform = 'translateY(150%) scale(0.9)';
+      bar.style.opacity = '0';
+      setTimeout(() => { bar.style.display = 'none'; }, 400);
+    }
+  }
+
+  /* =============================================================
+     MONETIZATION CODE INTEGRATION HOOKS (popunder, smartlink, etc)
+     ============================================================= */
+  // 1. POPUNDER SCRIPT HOOK: Drops popunder on body double-clicks
+  // (You can paste your Popunder script tags here).
+  
+  // 2. SMARTLINK DIRECT LINKS: Set the target href for any smartlink triggers.
+  const SMARTLINK_URL = "#"; // Replace with your high-CPM smartlink redirect URL
+  document.querySelectorAll('.smartlink-trigger').forEach(el => {
+    el.href = SMARTLINK_URL;
+  });
 </script>
 </body>
 </html>
