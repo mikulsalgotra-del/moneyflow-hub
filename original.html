@@ -1,0 +1,3244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoneyFlow Hub | Premium Finance, Crypto Yields & Multi-Unit Suite</title>
+  <meta name="description" content="Turn traffic into cash. A complete analysis of how to build websites optimized for maximum ad revenue, coupled with live crypto yield and fluid converters.">
+  
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styling System -->
+  <style>
+    :root {
+      --gold: #f5c842;
+      --gold-dim: #c9a22a;
+      --dark: #0d0d0d;
+      --dark2: #09090e;
+      --dark3: #141419;
+      --dark4: #1c1c24;
+      --green: #00e676;
+      --green-dim: #00c35e;
+      --red: #ff4444;
+      --text: #e8e8e8;
+      --muted: #8c8c96;
+      --card: #121218;
+      --border: #24242e;
+      --accent: #ff6b35;
+      --blue: #3b82f6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 200, 66, 0.04) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 230, 118, 0.03) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(13, 13, 13, 0.9);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(245, 200, 66, 0.1);
+      border-radius: 99px;
+      border: 1px solid var(--border);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-dim);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 120px 24px 60px;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% -10%, rgba(245,200,66,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0,230,118,0.04) 0%, transparent 50%),
+        var(--dark);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,200,66,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,200,66,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,200,66,0.06);
+      border: 1px solid rgba(245,200,66,0.2);
+      color: var(--gold);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .badge::before { content: '◆'; font-size: 8px; }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(54px, 9vw, 110px);
+      line-height: 0.92;
+      letter-spacing: 2px;
+      color: #fff;
+      animation: fadeDown 0.8s ease 0.1s both;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero .sub {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 20px auto 35px;
+      animation: fadeDown 0.8s ease 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeDown 0.8s ease 0.3s both;
+    }
+
+    .stat {
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 35px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(13,13,13,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 99;
+    }
+
+    .mobile-nav-panel a {
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== SECTION SHELL ===== */
+    section {
+      padding: 90px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 560px;
+      margin-bottom: 50px;
+    }
+
+    /* ===== AD PLACEMENTS MAP & BOXES ===== */
+    .ad-placeholder {
+      border: 2px dashed rgba(245, 200, 66, 0.35);
+      background: rgba(245, 200, 66, 0.02);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    .ad-placeholder:hover {
+      border-color: rgba(245, 200, 66, 0.65);
+      background: rgba(245, 200, 66, 0.05);
+    }
+    .ad-icon {
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .ad-leaderboard {
+      width: 100%;
+      max-width: 728px;
+      height: 90px;
+      margin: 0 auto;
+    }
+    .ad-in-content {
+      width: 100%;
+      max-width: 300px;
+      height: 250px;
+      margin: 20px auto;
+    }
+    .ad-skyscraper {
+      width: 300px;
+      height: 600px;
+    }
+    .ad-sticky-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(13, 13, 18, 0.95);
+      border-top: 2px dashed var(--gold);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+    .ad-sticky-footer.dismissed {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .ad-map-wrapper {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ad-map-header {
+      background: var(--dark3);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; }
+    .dot.y { background: #febc2e; }
+    .dot.g { background: #28c840; }
+
+    .page-preview {
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+      position: relative;
+    }
+
+    .page-row {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .page-block {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: var(--muted);
+      flex: 1;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-block.content { flex: 3; }
+    .page-block.sidebar { flex: 1.2; }
+
+    .ad-zone {
+      background: rgba(245,200,66,0.05);
+      border: 2px dashed var(--gold-dim);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 12px;
+      color: var(--gold);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex: 1;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .ad-zone:hover {
+      background: rgba(245,200,66,0.11);
+    }
+
+    .ad-zone .earn-tag {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: var(--gold);
+      color: #000;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 0 8px 0 8px;
+      letter-spacing: 1px;
+    }
+
+    .ad-zone.high { border-color: var(--green); background: rgba(0,230,118,0.03); color: var(--green); }
+    .ad-zone.high .earn-tag { background: var(--green); }
+    .ad-zone.med { border-color: var(--gold); }
+    .ad-zone.low { border-color: #ff6b35; background: rgba(255,107,53,0.03); color: #ff6b35; }
+    .ad-zone.low .earn-tag { background: #ff6b35; }
+
+    /* ===== UTILITIES INTERACTIVE WORKSPACE ===== */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .workspace-grid {
+        grid-template-columns: 3fr 1fr;
+      }
+    }
+
+    .tool-workbench {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      position: relative;
+    }
+
+    .tool-tab-bar {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      gap: 16px;
+      margin-bottom: 30px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tool-tab-bar::-webkit-scrollbar { display: none; }
+
+    .tool-tab-btn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      background: none;
+      border: none;
+      padding: 12px 18px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .tool-tab-btn:hover {
+      color: var(--text);
+    }
+    .tool-tab-btn.active {
+      color: var(--gold);
+    }
+    .tool-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .tool-panel {
+      display: none;
+    }
+    .tool-panel.active {
+      display: block;
+    }
+
+    /* Inputs Style matching dark style */
+    .calc-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .calc-input-group label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .calc-input-field {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    .calc-input-field:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245, 200, 66, 0.1);
+    }
+
+    .combobox-container {
+      display: flex;
+    }
+    .combobox-container input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+      flex: 1;
+    }
+    .combobox-container select {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      width: 90px;
+      background: var(--dark3);
+      cursor: pointer;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-action:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    /* Stat Yield grids */
+    .yield-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .yield-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .yield-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .yield-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .yield-val.plus { color: var(--green); }
+    .yield-val.minus { color: var(--red); }
+
+    .yield-group-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Swap button */
+    .swap-btn {
+      padding: 12px;
+      border-radius: 50%;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swap-btn:hover {
+      border-color: var(--gold);
+      transform: rotate(180deg);
+    }
+
+    /* Pills horizontal categories */
+    .pills-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      scrollbar-width: none;
+    }
+    .pills-bar::-webkit-scrollbar { display: none; }
+    .pill-btn {
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--dark3);
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .pill-btn.active {
+      background: rgba(245, 200, 66, 0.12);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ===== REVENUE CARDS ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .rev-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .rev-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--gold));
+    }
+
+    .rev-card:hover {
+      border-color: var(--card-accent, var(--gold));
+      transform: translateY(-4px);
+    }
+
+    .rev-card .icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .rev-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .rev-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .earn-range {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .earn-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 22px;
+      color: var(--card-accent, var(--gold));
+      font-weight: 700;
+    }
+
+    .earn-unit {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* ===== NICHE PICKER ===== */
+    .niche-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .niche-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+    }
+
+    .niche-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    .niche-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .niche-name {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rpm-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rpm-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--dark3);
+      flex: 1;
+      max-width: 120px;
+      overflow: hidden;
+    }
+
+    .rpm-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .pill.high { background: rgba(0,230,118,0.15); color: var(--green); }
+    .pill.med  { background: rgba(245,200,66,0.15); color: var(--gold); }
+    .pill.low  { background: rgba(255,100,100,0.15); color: var(--red); }
+
+    /* ===== STRATEGY STEPS ===== */
+    .steps {
+      display: grid;
+      gap: 20px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.3s;
+    }
+
+    .step:hover { border-color: var(--gold); }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      color: var(--dark4);
+      line-height: 1;
+      text-align: center;
+      -webkit-text-stroke: 1px var(--border);
+    }
+
+    .step h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ===== RPM CALCULATOR ===== */
+    .calc-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: var(--gold);
+    }
+
+    input[type="range"] {
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer;
+      accent-color: var(--gold);
+    }
+
+    .range-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: var(--gold);
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .calc-result {
+      background: linear-gradient(135deg, rgba(245,200,66,0.08), rgba(0,230,118,0.05));
+      border: 1px solid rgba(245,200,66,0.2);
+      border-radius: 12px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .result-item label {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 8px;
+    }
+
+    .result-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .result-num.daily { color: var(--text); }
+    .result-num.monthly { color: var(--gold); }
+    .result-num.yearly { color: var(--green); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong { color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50%       { opacity: 1; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .highlight { color: var(--gold); }
+    .green-text { color: var(--green); }
+
+    /* RESPONSIVE LAYOUT OVERRIDES */
+    @media (max-width: 768px) {
+      .calc-grid { grid-template-columns: 1fr; }
+      .page-row { flex-direction: column; }
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      section { padding: 60px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .calc-result { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 1fr; }
+      .step-num { font-size: 36px; text-align: left; }
+    }
+  </style>
+  <script src="https://pl29559836.effectivecpmnetwork.com/13/42/e0/1342e07f68747224f95f47885f6914f8.js"></script>
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+  <a href="#" class="logo">MoneyFlow</a>
+  <ul class="nav-links">
+    <li><a href="#placements">Ad Map</a></li>
+    <li><a href="#streams">Revenue</a></li>
+    <li><a href="#utilities">Live Utilities</a></li>
+    <li><a href="#niches">Niches</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+  <button class="hamburger" id="mobile-hamburger" aria-label="Toggle Navigation">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+</nav>
+
+<!-- MOBILE NAVIGATION DROPDOWN -->
+<div class="mobile-nav-panel" id="mobile-menu">
+  <a href="#placements" onclick="toggleMobileMenu()">Ad Map</a>
+  <a href="#streams" onclick="toggleMobileMenu()">Revenue</a>
+  <a href="#utilities" onclick="toggleMobileMenu()">Live Utilities</a>
+  <a href="#niches" onclick="toggleMobileMenu()">Niches</a>
+  <a href="#roadmap" onclick="toggleMobileMenu()">Roadmap</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">Full Ad Revenue Blueprint 2026</div>
+  <h1>Turn Traffic<br><span>Into Cash</span></h1>
+  <p class="sub">A complete analysis of how to build a website optimized for maximum ad revenue — every placement, every stream, every niche — all in one page.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">$50</div>
+      <div class="stat-label">Avg RPM (Finance)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Revenue Streams</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Ad Placements</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$5k+</div>
+      <div class="stat-label">Monthly Potential</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<hr class="divider">
+
+<!-- [AD_TOP_LEADERBOARD] Active Ad Unit -->
+<div class="w-full py-6 px-4 flex justify-center z-10 relative">
+  <div id="ad-top-leaderboard" style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<!-- AD PLACEMENT MAP -->
+<section id="placements">
+  <div class="fade-in">
+    <div class="section-tag">Visual Blueprint</div>
+    <h2 class="section-title">Where to<br>Place Ads</h2>
+    <p class="section-desc">Each zone has a different earning potential. Green = highest RPM. The layout below shows an ideal page structure with all high-converting ad zones.</p>
+  </div>
+
+  <div class="ad-map-wrapper fade-in">
+    <div class="ad-map-header">
+      <div class="dot r"></div>
+      <div class="dot y"></div>
+      <div class="dot g"></div>
+      <span style="margin-left:8px;">yoursite.com — Ideal Page Layout</span>
+    </div>
+    <div class="page-preview">
+
+      <!-- TOP BANNER -->
+      <div class="page-row">
+        <div class="ad-zone high" style="min-height:70px; flex:1;">
+          <span class="earn-tag">HIGH</span>
+          📢 HEADER LEADERBOARD (728×90) — Seen by 100% of visitors. $3–8 CPM
+        </div>
+      </div>
+
+      <!-- NAV BAR (fake) -->
+      <div class="page-row">
+        <div class="page-block" style="min-height:40px; flex:1; background: var(--dark4);">🔗 Logo &nbsp;|&nbsp; Home &nbsp;|&nbsp; Blog &nbsp;|&nbsp; Tools &nbsp;|&nbsp; Contact</div>
+      </div>
+
+      <!-- CONTENT + SIDEBAR -->
+      <div class="page-row" style="align-items:flex-start; gap:12px;">
+
+        <!-- MAIN CONTENT COL -->
+        <div style="flex:3; display:grid; gap:12px;">
+
+          <!-- IN-CONTENT TOP -->
+          <div class="ad-zone high" style="min-height:90px;">
+            <span class="earn-tag">HIGHEST</span>
+            🔥 IN-CONTENT TOP (336×280) — After 1st paragraph. $5–15 CPM
+          </div>
+
+          <div class="page-block content">📝 Article body text — paragraph 2, 3...</div>
+
+          <!-- IN-CONTENT MID -->
+          <div class="ad-zone med" style="min-height:90px;">
+            <span class="earn-tag">HIGH</span>
+            💰 IN-CONTENT MID (300×250) — Mid-article. $3–8 CPM
+          </div>
+
+          <div class="page-block content">📝 Article continues — paragraph 5, 6...</div>
+
+          <!-- IN-CONTENT BOTTOM -->
+          <div class="ad-zone med" style="min-height:70px;">
+            <span class="earn-tag">MED</span>
+            📌 IN-CONTENT BOTTOM — End of article. $2–5 CPM
+          </div>
+
+          <!-- RELATED/NATIVE -->
+          <div class="ad-zone low" style="min-height:60px;">
+            <span class="earn-tag">MED</span>
+            🔗 NATIVE / RELATED CONTENT ADS (Taboola/Outbrain) — $1–3 CPM
+          </div>
+        </div>
+
+        <!-- SIDEBAR COL -->
+        <div style="flex:1.2; display:grid; gap:12px; min-width:160px;">
+          <div class="ad-zone high" style="min-height:200px; flex-direction:column; gap:6px;">
+            <span class="earn-tag">HIGH</span>
+            📱 SIDEBAR TOP (300×600)
+            <span style="font-size:10px; color:var(--muted);">Half-page ad. $4–10 CPM</span>
+          </div>
+          <div class="ad-zone med" style="min-height:120px; flex-direction:column;">
+            <span class="earn-tag">MED</span>
+            🟨 SIDEBAR MID (300×250)
+            <span style="font-size:10px; color:var(--muted);">$3–6 CPM</span>
+          </div>
+          <div class="page-block sidebar" style="font-size:12px;">📬 Email Signup CTA</div>
+          <div class="ad-zone low" style="min-height:80px; flex-direction:column;">
+            <span class="earn-tag">LOW</span>
+            🔻 SIDEBAR BOTTOM
+            <span style="font-size:10px; color:var(--muted);">$1–2 CPM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER BANNER -->
+      <div class="page-row">
+        <div class="ad-zone med" style="min-height:60px; flex:1;">
+          <span class="earn-tag">MED</span>
+          🏁 FOOTER BANNER (728×90) — Sticky footer = 2× more effective. $2–5 CPM
+        </div>
+      </div>
+
+      <!-- STICKY BOTTOM -->
+      <div class="page-row">
+        <div class="ad-zone high" style="min-height:55px; flex:1; border-style:solid; animation: pulse 2s infinite;">
+          <span class="earn-tag">HIGHEST</span>
+          📲 STICKY BOTTOM BAR (Mobile) — Follows scroll. $6–20 CPM on mobile!
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Centered Header Leaderboard (728x90) - Slot 4 -->
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0;">
+  <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+    [ Active Adsterra Leaderboard - Slot 4 ]
+  </span>
+  <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- MONETIZATION REVENUE STREAMS -->
+<section id="streams">
+  <div class="fade-in">
+    <div class="section-tag">Monetization</div>
+    <h2 class="section-title">7 Revenue<br>Streams</h2>
+    <p class="section-desc">Don't rely on just one. Stack all 7 for maximum income from the same traffic.</p>
+  </div>
+
+  <div class="cards-grid fade-in">
+    <div class="rev-card" style="--card-accent: var(--green);">
+      <span class="icon">🟢</span>
+      <h3>Google AdSense / Mediavine</h3>
+      <p>Automatic contextual display ads. Best for beginners. Mediavine/AdThrive pay 3–5× more but require 50k+ monthly sessions.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:var(--green);">$2–$50</span>
+        <span class="earn-unit">RPM</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: var(--gold);">
+      <span class="icon">🤝</span>
+      <h3>Affiliate Marketing</h3>
+      <p>Recommend products via Amazon, ShareASale, CJ. Finance/tech niches pay $50–$500 per lead. Highest ROI per visitor.</p>
+      <div class="earn-range">
+        <span class="earn-val">$5–$500</span>
+        <span class="earn-unit">per sale</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: #ff6b35;">
+      <span class="icon">🔗</span>
+      <h3>Native Ads (Taboola)</h3>
+      <p>Content recommendation widgets placed at article end. Low CPM but very high click volume. Easy to set up alongside AdSense.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:#ff6b35;">$1–$3</span>
+        <span class="earn-unit">CPM</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: #a78bfa;">
+      <span class="icon">📧</span>
+      <h3>Email List Monetization</h3>
+      <p>Build a list with a free tool offer. Sell sponsored newsletters, promote affiliate offers. $1/subscriber/month is industry average.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:#a78bfa;">$1</span>
+        <span class="earn-unit">/ sub / month</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: #38bdf8;">
+      <span class="icon">🛠️</span>
+      <h3>Sponsored Posts</h3>
+      <p>Brands pay for featured articles. With 10k+ monthly visitors, charge $150–$800/post in your niche. No extra traffic needed.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:#38bdf8;">$150–$800</span>
+        <span class="earn-unit">per post</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: #f472b6;">
+      <span class="icon">📦</span>
+      <h3>Digital Products</h3>
+      <p>Sell ebooks, templates, or courses. Zero inventory cost. One product can pay out indefinitely. Finance/health converts best.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:#f472b6;">$9–$297</span>
+        <span class="earn-unit">per unit</span>
+      </div>
+    </div>
+
+    <div class="rev-card" style="--card-accent: var(--green);">
+      <span class="icon">🔔</span>
+      <h3>Push Notifications</h3>
+      <p>Collect push subscribers and send them offers. PropellerAds and AdMaven pay per click. Great passive income with 0 extra content.</p>
+      <div class="earn-range">
+        <span class="earn-val" style="color:var(--green);">$0.01–$0.05</span>
+        <span class="earn-unit">per subscriber</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Centered Header Leaderboard (728x90) - Slot 5 -->
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0;">
+  <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+    [ Active Adsterra Leaderboard - Slot 5 ]
+  </span>
+  <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===================== PREMIUM UTILITIES INTERACTIVE WORKBENCH ===================== -->
+<section id="utilities">
+  <div class="fade-in">
+    <div class="section-tag">Interactive Earning Tools</div>
+    <h2 class="section-title">Live Earning &amp;<br>Utility Suite</h2>
+    <p class="section-desc">Instantly compute crypto mining yields, convert technical engineering parameters, or project blog niche earnings in real-time.</p>
+  </div>
+
+  <!-- Centered Standard 468x60 Banner -->
+  <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px 0 30px;">
+    <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+      [ Active Adsterra Standard Banner ]
+    </span>
+    <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+      <script>
+        atOptions = {
+          'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+    </div>
+  </div>
+
+  <div class="workspace-grid fade-in">
+    
+    <!-- Main Workbench Area -->
+    <div class="tool-workbench">
+      
+      <!-- Tab selectors -->
+      <div class="tool-tab-bar">
+        <button class="tool-tab-btn active" id="btn-tab-crypto" onclick="selectSuiteTab('crypto')">💰 Crypto Mining Yield</button>
+        <button class="tool-tab-btn" id="btn-tab-converter" onclick="selectSuiteTab('converter')">⚙️ Multi-Unit Converter</button>
+        <button class="tool-tab-btn" id="btn-tab-traffic" onclick="selectSuiteTab('traffic')">📈 Traffic RPM Estimator</button>
+      </div>
+
+      <!-- PANEL 1: CRYPTO MINING CALCULATOR -->
+      <div class="tool-panel active" id="panel-crypto">
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+            
+            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+              <!-- Coin selector -->
+              <div class="calc-input-group">
+                <label>🪙 Selected Asset</label>
+                <select id="crypto-coin-select" class="calc-input-field" onchange="CryptoCalculator.onCoinChange()">
+                  <option value="bitcoin">Bitcoin (BTC) — SHA-256</option>
+                  <option value="ethereum-classic">Ethereum Classic (ETC) — Etchash</option>
+                  <option value="litecoin">Litecoin (LTC) — Scrypt</option>
+                  <option value="monero">Monero (XMR) — RandomX</option>
+                  <option value="ravencoin">Ravencoin (RVN) — KawPow</option>
+                </select>
+              </div>
+
+              <!-- Hashrate -->
+              <div class="calc-input-group">
+                <label>⚡ Hardware Hashrate</label>
+                <div class="combobox-container">
+                  <input type="number" id="crypto-hashrate" class="calc-input-field" value="100" min="0" step="any">
+                  <select id="crypto-hashrate-unit" class="calc-input-field" onchange="CryptoCalculator.calculateCrypto()">
+                    <option value="1">H/s</option>
+                    <option value="1e3">KH/s</option>
+                    <option value="1e6" selected>MH/s</option>
+                    <option value="1e9">GH/s</option>
+                    <option value="1e12">TH/s</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+              <!-- Power -->
+              <div class="calc-input-group">
+                <label>🔌 Power Consumption (W)</label>
+                <input type="number" id="crypto-power" class="calc-input-field" value="1500" min="0" step="any">
+              </div>
+
+              <!-- Electricity Cost -->
+              <div class="calc-input-group">
+                <label>💲 Electrical Cost ($/kWh)</label>
+                <input type="number" id="crypto-elec-cost" class="calc-input-field" value="0.10" min="0" step="0.001">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+              <!-- Current Price -->
+              <div class="calc-input-group">
+                <label>📈 Current Coin Price (USD)</label>
+                <input type="number" id="crypto-coin-price" class="calc-input-field" min="0" step="any">
+              </div>
+
+              <!-- Pool Fee -->
+              <div class="calc-input-group">
+                <label>🛡️ Pool Fee (%)</label>
+                <input type="number" id="crypto-pool-fee" class="calc-input-field" value="1.0" min="0" max="100" step="0.1">
+              </div>
+            </div>
+
+            <!-- Network Difficulty -->
+            <div class="calc-input-group">
+              <label>⛓️ Network Difficulty</label>
+              <input type="number" id="crypto-difficulty" class="calc-input-field" min="0" step="any">
+            </div>
+
+            <div class="calc-input-group" style="display:none;">
+              <input type="number" id="crypto-block-reward" class="calc-input-field" min="0" step="any">
+            </div>
+          </div>
+
+          <!-- NATIVE IN CONTENT AD IN CALCULATOR -->
+          <div class="ad-placeholder ad-in-content mx-auto" id="ad-crypto-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:auto; padding: 12px 0;">
+            <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 8px;">
+              [ ACTIVE ADSTERRA 300×250 MEDIUM RECTANGLE ]
+            </span>
+            <!-- Active 300x250 Medium Rectangle Ad Code -->
+            <div style="width: 300px; height: 250px;">
+              <script>
+                atOptions = {
+                  'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+            </div>
+          </div>
+
+          <button class="btn-action" onclick="CryptoCalculator.calculateCrypto()">
+            ⚡ Calculate Profit Yields
+          </button>
+
+          <!-- Crypto Results -->
+          <div id="crypto-results" class="results-hidden space-y-4" style="border-top:1px solid var(--border); padding-top:24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div class="yield-group-label">
+                <span style="width: 8px; height: 8px; border-radius:50%; background:var(--blue);"></span>
+                Gross Revenue Yields
+              </div>
+              <span id="crypto-results-coin-badge" class="pill med">BTC</span>
+            </div>
+            
+            <div class="yield-grid">
+              <div class="yield-card">
+                <div style="font-size:10px; color:var(--muted);">Daily</div>
+                <div class="yield-val" id="crypto-rev-daily">$0.00</div>
+              </div>
+              <div class="yield-card">
+                <div style="font-size:10px; color:var(--muted);">Weekly</div>
+                <div class="yield-val" id="crypto-rev-weekly">$0.00</div>
+              </div>
+              <div class="yield-card">
+                <div style="font-size:10px; color:var(--muted);">Monthly</div>
+                <div class="yield-val" id="crypto-rev-monthly">$0.00</div>
+              </div>
+              <div class="yield-card">
+                <div style="font-size:10px; color:var(--muted);">Yearly</div>
+                <div class="yield-val" id="crypto-rev-yearly">$0.00</div>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr; md:grid-template-columns:1fr 1fr; gap:16px; margin: 16px 0;">
+              <!-- Power costs -->
+              <div class="yield-card" style="text-align:left; background: rgba(255,68,68,0.01);">
+                <div class="yield-group-label"><span style="width:6px; height:6px; border-radius:50%; background:var(--red);"></span> Power Bills</div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:8px;">
+                  <span style="color:var(--muted);">Daily Power:</span>
+                  <span id="crypto-power-daily" class="yield-val minus">-$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+                  <span style="color:var(--muted);">Weekly Power:</span>
+                  <span id="crypto-power-weekly" class="yield-val minus">-$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+                  <span style="color:var(--muted);">Monthly Power:</span>
+                  <span id="crypto-power-monthly" class="yield-val minus">-$0.00</span>
+                </div>
+              </div>
+
+              <!-- Pool fees -->
+              <div class="yield-card" style="text-align:left;">
+                <div class="yield-group-label"><span style="width:6px; height:6px; border-radius:50%; background:var(--accent);"></span> Pool Fees</div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:8px;">
+                  <span style="color:var(--muted);">Daily Pool Fee:</span>
+                  <span id="crypto-fee-daily" class="yield-val minus">-$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+                  <span style="color:var(--muted);">Weekly Pool Fee:</span>
+                  <span id="crypto-fee-weekly" class="yield-val minus">-$0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+                  <span style="color:var(--muted);">Monthly Pool Fee:</span>
+                  <span id="crypto-fee-monthly" class="yield-val minus">-$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Net Profit yields highlights -->
+            <div class="yield-card" style="background: linear-gradient(135deg, rgba(0,230,118,0.05) 0%, rgba(245,200,66,0.02) 100%); text-align: left; padding: 22px;">
+              <div class="yield-group-label" style="color:var(--green);"><span style="width:6px; height:6px; border-radius:50%; background:var(--green);"></span> Net Earnings Profit (After all Expenses)</div>
+              <div class="yield-grid" style="margin-top:14px;">
+                <div>
+                  <div style="font-size:10px; color:var(--muted);">Daily Net</div>
+                  <div class="yield-val plus" id="crypto-net-daily">+$0.00</div>
+                </div>
+                <div>
+                  <div style="font-size:10px; color:var(--muted);">Weekly Net</div>
+                  <div class="yield-val plus" id="crypto-net-weekly">+$0.00</div>
+                </div>
+                <div>
+                  <div style="font-size:10px; color:var(--muted);">Monthly Net</div>
+                  <div class="yield-val plus" id="crypto-net-monthly">+$0.00</div>
+                </div>
+                <div>
+                  <div style="font-size:10px; color:var(--muted);">Yearly Net</div>
+                  <div class="yield-val plus" id="crypto-net-yearly">+$0.00</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROI Break evens -->
+            <div style="display:grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
+              <div class="yield-card" style="display:flex; flex-direction:column; justify-content:center;">
+                <span style="font-size:11px; color:var(--muted);">Break-Even Threshold Price</span>
+                <span class="yield-val" id="crypto-breakeven-price" style="font-size:18px; margin-top:4px;">N/A</span>
+                <span id="crypto-breakeven-hint" style="font-size:10px; color:var(--muted); margin-top:2px;">Cover electrical bills.</span>
+              </div>
+              <div class="yield-card" style="display:flex; flex-direction:column; justify-content:center;">
+                <span style="font-size:11px; color:var(--muted);">Coins Generated Daily</span>
+                <span class="yield-val" id="crypto-coins-mined" style="font-size:18px; margin-top:4px;">N/A</span>
+                <span id="crypto-coins-mined-hint" style="font-size:10px; color:var(--muted); margin-top:2px;">Direct coin yield drops.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 2: ADVANCED MULTI-UNIT CONVERTER -->
+      <div class="tool-panel" id="panel-converter">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Standard 468x60 Banner - Slot 2 -->
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 10px;">
+            <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase;">
+              [ Active Adsterra Standard Banner - Slot 2 ]
+            </span>
+            <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+              <script>
+                atOptions = {
+                  'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                  'format' : 'iframe',
+                  'height' : 60,
+                  'width' : 468,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+            </div>
+          </div>
+
+          <!-- Category Selector -->
+          <div class="pills-bar" id="converter-cats">
+            <!-- Populated via Javascript -->
+          </div>
+
+          <div class="yield-card" style="background: var(--dark3); border-color: var(--border); padding: 24px;">
+            <div style="display: grid; grid-template-columns: 1fr; md:grid-template-columns: 9fr 1fr 9fr; gap: 20px; align-items: center;">
+              
+              <!-- Value From -->
+              <div class="calc-input-group">
+                <label>From Value</label>
+                <div class="combobox-container">
+                  <input type="number" id="convert-from" class="calc-input-field" value="1" oninput="UnitConverter.onInput()">
+                  <select id="convert-from-unit" class="calc-input-field" onchange="UnitConverter.onInput()">
+                    <!-- Dyn options -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- Swap Button -->
+              <div style="display:flex; justify-content:center; padding-top:12px;">
+                <button class="swap-btn" onclick="UnitConverter.swapUnits()" title="Swap units">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Value To -->
+              <div class="calc-input-group">
+                <label>To Converted Value</label>
+                <div class="combobox-container">
+                  <input type="text" id="convert-to" class="calc-input-field" style="color:var(--green); font-weight:700;" readonly>
+                  <select id="convert-to-unit" class="calc-input-field" onchange="UnitConverter.onInput()">
+                    <!-- Dyn options -->
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Conversion ratio description formula -->
+            <div id="conversion-formula" style="font-family:'Space Mono', monospace; font-size:11px; color:var(--muted); text-align:center; margin-top:20px; padding:10px; background:var(--dark); border-radius:6px; border:1px solid var(--border);">
+              Ratio formula details loading...
+            </div>
+          </div>
+
+          <!-- IN CONTENT AD IN CONVERTER -->
+          <div class="ad-placeholder ad-in-content mx-auto" id="ad-converter-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:auto; padding: 12px 0;">
+            <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 8px;">
+              [ ACTIVE ADSTERRA 300×250 MEDIUM RECTANGLE - SLOT 2 ]
+            </span>
+            <!-- Active 300x250 Medium Rectangle Ad Code (Slot 2) -->
+            <div style="width: 300px; height: 250px;">
+              <script>
+                atOptions = {
+                  'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+            </div>
+          </div>
+
+          <!-- History -->
+          <div style="border-top:1px solid var(--border); padding-top:20px;">
+            <div class="yield-group-label">⏳ Conversion History</div>
+            <div id="conversion-history-list" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+              <span style="font-size:11px; text-style:italic; color:var(--muted);">No conversions saved. Complete conversions to save chips.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 3: STATIC TRAFFIC RPM ESTIMATOR -->
+      <div class="tool-panel" id="panel-traffic">
+        <!-- Standard 468x60 Banner - Slot 3 -->
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase;">
+            [ Active Adsterra Standard Banner - Slot 3 ]
+          </span>
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="calc-grid">
+          <div class="input-group">
+            <label>Monthly Visitors</label>
+            <input type="range" id="visitorRange" min="1000" max="200000" step="1000" value="10000" oninput="calcUpdate()">
+            <div class="range-val" id="visitorVal">10,000 visitors/mo</div>
+          </div>
+          <div class="input-group">
+            <label>Niche RPM ($)</label>
+            <input type="range" id="rpmRange" min="2" max="60" step="1" value="12" oninput="calcUpdate()">
+            <div class="range-val" id="rpmVal">$12 RPM</div>
+          </div>
+          <div class="input-group">
+            <label>Pages Per Visit</label>
+            <input type="range" id="pagesRange" min="1" max="5" step="0.5" value="1.5" oninput="calcUpdate()">
+            <div class="range-val" id="pagesVal">1.5 pages/visit</div>
+          </div>
+          <div class="input-group">
+            <label>Affiliate Multiplier</label>
+            <select id="affMult" class="calc-input-field" onchange="calcUpdate()">
+              <option value="1">No Affiliate (×1)</option>
+              <option value="1.5" selected>Light Affiliate (×1.5)</option>
+              <option value="2">Active Affiliate (×2)</option>
+              <option value="3">Heavy Affiliate (×3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="result-item">
+            <label>Daily Income</label>
+            <div class="result-num daily" id="dailyIncome">$6</div>
+          </div>
+          <div class="result-item">
+            <label>Monthly Income</label>
+            <div class="result-num monthly" id="monthlyIncome">$180</div>
+          </div>
+          <div class="result-item">
+            <label>Yearly Income</label>
+            <div class="result-num yearly" id="yearlyIncome">$2,160</div>
+          </div>
+        </div>
+
+        <!-- IN CONTENT AD IN TRAFFIC RPM -->
+        <div class="ad-placeholder ad-in-content mx-auto" id="ad-traffic-content" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:auto; padding: 12px 0; margin-top:20px;">
+          <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 8px;">
+            [ ACTIVE ADSTERRA 300×250 MEDIUM RECTANGLE - SLOT 3 ]
+          </span>
+          <!-- Active 300x250 Medium Rectangle Ad Code (Slot 3) -->
+          <div style="width: 300px; height: 250px;">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p style="text-align:center;color:var(--muted);font-size:11px;margin-top:20px;font-family:'Space Mono',monospace;">
+          * Estimate based on display ads + affiliate multiplier. Actual results vary by niche, content quality & SEO.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Aside Skyscraper ad Column on Desktop -->
+    <aside style="display:flex; flex-direction:column; gap:24px;">
+      <!-- [AD_RIGHT_SKYSCRAPER] Box -->
+      <div class="ad-placeholder ad-skyscraper relative" id="ad-right-skyscraper" style="margin:0 auto; max-width:300px; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×600 SKYSCRAPER ]
+        </span>
+        <!-- Active 160x600 Skyscraper Ad Code -->
+        <div style="width: 160px; height: 600px;">
+          <script>
+            atOptions = {
+              'key' : '9bba29ed9c7efae90efaaac92c7c5717',
+              'format' : 'iframe',
+              'height' : 600,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/9bba29ed9c7efae90efaaac92c7c5717/invoke.js"></script>
+        </div>
+      </div>
+
+      <!-- [AD_RIGHT_MINI_SKYSCRAPER] Box -->
+      <div class="ad-placeholder relative" id="ad-right-mini-skyscraper" style="margin:0 auto; max-width:300px; width:100%; height:auto; min-height: 320px; display:flex; flex-direction:column; justify-content:center; align-items:center; border: 2px dashed rgba(245, 200, 66, 0.25); background: rgba(245, 200, 66, 0.01); border-radius: 12px; padding: 12px 0;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×300 MINI SKYSCRAPER ]
+        </span>
+        <!-- Active 160x300 Skyscraper Ad Code -->
+        <div style="width: 160px; height: 300px;">
+          <script>
+            atOptions = {
+              'key' : '90ac07fb1231f17fbb50a97371d72495',
+              'format' : 'iframe',
+              'height' : 300,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/90ac07fb1231f17fbb50a97371d72495/invoke.js"></script>
+        </div>
+      </div>
+
+      <!-- Quick Tips Box styled native -->
+      <div class="rev-card" style="padding:22px; --card-accent: var(--gold); border-color:var(--border);">
+        <h3 style="font-family:'Bebas Neue', sans-serif; font-size:20px; display:flex; align-items:center; gap:8px;">
+          <span>💡</span> Yield Pro Tips
+        </h3>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:11px; color:var(--muted); margin-top:12px; margin-bottom:16px;">
+          <li>◆ Diff increases trigger payout compression. Track hash networks relative to core mining difficulty indexes.</li>
+          <li>◆ Electricity expense is your critical ROI lever. Lower rates significantly enhance profit yields.</li>
+          <li>◆ Stack monetization strategies (e.g. ad networks plus affiliate products) to achieve 3x earnings.</li>
+        </ul>
+        <!-- [ SMARTLINK / HIGH-CPM DIRECT LINK ] CTA button slot -->
+        <a href="#" class="smartlink-trigger btn-action" style="font-size:14px; padding:10px; display:flex; width:100%; border-radius:6px; background:rgba(245,200,66,0.1); border:1px solid var(--gold); color:var(--gold); font-family:'Space Mono', monospace; text-transform:uppercase; font-weight:700; text-align:center; justify-content:center; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000';" onmouseout="this.style.background='rgba(245,200,66,0.1)'; this.style.color='var(--gold)';">
+          🔗 Smartlink Direct Offer
+        </a>
+      </div>
+
+      <!-- [AD_RIGHT_SKYSCRAPER_SLOT2] Box -->
+      <div class="ad-placeholder ad-skyscraper relative" id="ad-right-skyscraper-2" style="margin:20px auto 0; max-width:300px; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×600 SKYSCRAPER - SLOT 2 ]
+        </span>
+        <!-- Active 160x600 Skyscraper Ad Code (Slot 2) -->
+        <div style="width: 160px; height: 600px;">
+          <script>
+            atOptions = {
+              'key' : '9bba29ed9c7efae90efaaac92c7c5717',
+              'format' : 'iframe',
+              'height' : 600,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/9bba29ed9c7efae90efaaac92c7c5717/invoke.js"></script>
+        </div>
+      </div>
+
+      <!-- [AD_RIGHT_MINI_SKYSCRAPER_SLOT2] Box -->
+      <div class="ad-placeholder relative" id="ad-right-mini-skyscraper-2" style="margin:20px auto 0; max-width:300px; width:100%; height:auto; min-height: 320px; display:flex; flex-direction:column; justify-content:center; align-items:center; border: 2px dashed rgba(245, 200, 66, 0.25); background: rgba(245, 200, 66, 0.01); border-radius: 12px; padding: 12px 0;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×300 MINI SKYSCRAPER - SLOT 2 ]
+        </span>
+        <!-- Active 160x300 Skyscraper Ad Code (Slot 2) -->
+        <div style="width: 160px; height: 300px;">
+          <script>
+            atOptions = {
+              'key' : '90ac07fb1231f17fbb50a97371d72495',
+              'format' : 'iframe',
+              'height' : 300,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/90ac07fb1231f17fbb50a97371d72495/invoke.js"></script>
+        </div>
+      </div>
+
+      <!-- [AD_RIGHT_SKYSCRAPER_SLOT3] Box -->
+      <div class="ad-placeholder ad-skyscraper relative" id="ad-right-skyscraper-3" style="margin:20px auto 0; max-width:300px; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×600 SKYSCRAPER - SLOT 3 ]
+        </span>
+        <!-- Active 160x600 Skyscraper Ad Code (Slot 3) -->
+        <div style="width: 160px; height: 600px;">
+          <script>
+            atOptions = {
+              'key' : '9bba29ed9c7efae90efaaac92c7c5717',
+              'format' : 'iframe',
+              'height' : 600,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/9bba29ed9c7efae90efaaac92c7c5717/invoke.js"></script>
+        </div>
+      </div>
+
+      <!-- [AD_RIGHT_MINI_SKYSCRAPER_SLOT3] Box -->
+      <div class="ad-placeholder relative" id="ad-right-mini-skyscraper-3" style="margin:20px auto 0; max-width:300px; width:100%; height:auto; min-height: 320px; display:flex; flex-direction:column; justify-content:center; align-items:center; border: 2px dashed rgba(245, 200, 66, 0.25); background: rgba(245, 200, 66, 0.01); border-radius: 12px; padding: 12px 0;">
+        <span style="font-family:'Space Mono', monospace; font-size:9px; color:var(--gold); font-weight:700; text-align:center; padding: 4px 10px; margin-bottom: 8px;">
+          [ ACTIVE ADSTERRA 160×300 MINI SKYSCRAPER - SLOT 3 ]
+        </span>
+        <!-- Active 160x300 Skyscraper Ad Code (Slot 3) -->
+        <div style="width: 160px; height: 300px;">
+          <script>
+            atOptions = {
+              'key' : '90ac07fb1231f17fbb50a97371d72495',
+              'format' : 'iframe',
+              'height' : 300,
+              'width' : 160,
+              'params' : {}
+            };
+          </script>
+          <script src="https://www.highperformanceformat.com/90ac07fb1231f17fbb50a97371d72495/invoke.js"></script>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ===================== [AD_NATIVE_BANNER] RECOMENDATION GRID ===================== -->
+<section style="padding: 20px 40px 60px;">
+  <div class="ad-placeholder w-full p-8 relative fade-in" id="ad-native-banner" style="border: 2px dashed rgba(245, 200, 66, 0.35); background: rgba(245, 200, 66, 0.02); border-radius: 16px;">
+    <div style="display:flex; align-items:center; gap:8.5px; margin-bottom:20px; width:100%;">
+      <svg class="ad-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+      </svg>
+      <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ NATIVE_BANNER — Active Adsterra Recommended Content Widget ]</span>
+    </div>
+    
+    <!-- Active Adsterra Native Banner Code -->
+    <div style="width: 100%; min-height: 100px;">
+      <script async="async" data-cfasync="false" src="https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js"></script>
+      <div id="container-2c63d1892f0f4cdfa097843b6668d8af"></div>
+    </div>
+    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+  </div>
+</section>
+
+<!-- ===================== [AD_NATIVE_BANNER_2] RECOMENDATION GRID ===================== -->
+<section style="padding: 20px 40px;">
+  <div class="ad-placeholder w-full p-8 relative fade-in" id="ad-native-banner-2" style="border: 2px dashed rgba(245, 200, 66, 0.35); background: rgba(245, 200, 66, 0.02); border-radius: 16px;">
+    <div style="display:flex; align-items:center; gap:8.5px; margin-bottom:20px; width:100%;">
+      <svg class="ad-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+      </svg>
+      <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ NATIVE_BANNER — Active Adsterra Recommended Content Widget - Slot 2 ]</span>
+    </div>
+    
+    <!-- Active Adsterra Native Banner Code -->
+    <div style="width: 100%; min-height: 100px;">
+      <script async="async" data-cfasync="false" src="https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js"></script>
+      <div id="container-2c63d1892f0f4cdfa097843b6668d8af"></div>
+    </div>
+    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+  </div>
+</section>
+
+<!-- ===================== [AD_NATIVE_BANNER_3] RECOMENDATION GRID ===================== -->
+<section style="padding: 20px 40px;">
+  <div class="ad-placeholder w-full p-8 relative fade-in" id="ad-native-banner-3" style="border: 2px dashed rgba(245, 200, 66, 0.35); background: rgba(245, 200, 66, 0.02); border-radius: 16px;">
+    <div style="display:flex; align-items:center; gap:8.5px; margin-bottom:20px; width:100%;">
+      <svg class="ad-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+      </svg>
+      <span style="font-family:'Space Mono', monospace; font-size:11px; color:var(--gold); font-weight:700;">[ NATIVE_BANNER — Active Adsterra Recommended Content Widget - Slot 3 ]</span>
+    </div>
+    
+    <!-- Active Adsterra Native Banner Code -->
+    <div style="width: 100%; min-height: 100px;">
+      <script async="async" data-cfasync="false" src="https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js"></script>
+      <div id="container-2c63d1892f0f4cdfa097843b6668d8af"></div>
+    </div>
+    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+  </div>
+</section>
+
+<!-- Centered Header Leaderboard (728x90) - Slot 2 -->
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0;">
+  <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+    [ Active Adsterra Leaderboard - Slot 2 ]
+  </span>
+  <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- NICHE TABLE -->
+<section id="niches">
+  <div class="fade-in">
+    <div class="section-tag">Niche Selection</div>
+    <h2 class="section-title">Best Niches<br>By RPM</h2>
+    <p class="section-desc">Your niche is the #1 factor in ad revenue. The same 10,000 visitors can earn $30 or $500 depending on your topic.</p>
+  </div>
+
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden;" class="fade-in">
+    <table class="niche-table">
+      <thead>
+        <tr>
+          <th>Niche</th>
+          <th>Avg RPM</th>
+          <th>Revenue Rate</th>
+          <th>Competition</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="niche-name">💰 Personal Finance</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:100%;background:var(--green);"></div></div>
+              <span style="color:var(--green);font-family:'Space Mono',monospace;font-size:13px;">$35–$60</span>
+            </div>
+          </td>
+          <td><span class="pill high">HIGHEST</span></td>
+          <td><span class="pill med">MEDIUM</span></td>
+          <td>Budgeting tools, credit cards, loans</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">🏥 Health & Medical</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:88%;background:var(--green);"></div></div>
+              <span style="color:var(--green);font-family:'Space Mono',monospace;font-size:13px;">$25–$50</span>
+            </div>
+          </td>
+          <td><span class="pill high">VERY HIGH</span></td>
+          <td><span class="pill low">HIGH</span></td>
+          <td>Symptoms, supplements, conditions</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">⚖️ Legal / Law</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:80%;background:#ff6b35;"></div></div>
+              <span style="color:#ff6b35;font-family:'Space Mono',monospace;font-size:13px;">$20–$40</span>
+            </div>
+          </td>
+          <td><span class="pill high">VERY HIGH</span></td>
+          <td><span class="pill low">HIGH</span></td>
+          <td>Accident, divorce, immigration help</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">💻 SaaS / Tech</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:70%;background:var(--gold);"></div></div>
+              <span style="color:var(--gold);font-family:'Space Mono',monospace;font-size:13px;">$12–$30</span>
+            </div>
+          </td>
+          <td><span class="pill med">HIGH</span></td>
+          <td><span class="pill med">MEDIUM</span></td>
+          <td>Software reviews, tutorials, tools</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">🏡 Real Estate</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:65%;background:var(--gold);"></div></div>
+              <span style="color:var(--gold);font-family:'Space Mono',monospace;font-size:13px;">$10–$25</span>
+            </div>
+          </td>
+          <td><span class="pill med">HIGH</span></td>
+          <td><span class="pill med">MEDIUM</span></td>
+          <td>Home buying, investing, renting</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">🎓 Education</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:50%;background:var(--gold);"></div></div>
+              <span style="color:var(--gold);font-family:'Space Mono',monospace;font-size:13px;">$6–$15</span>
+            </div>
+          </td>
+          <td><span class="pill med">MEDIUM</span></td>
+          <td><span class="pill med">MEDIUM</span></td>
+          <td>Online courses, career tips</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">🍕 Food / Recipes</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:30%;background:var(--muted);"></div></div>
+              <span style="color:var(--muted);font-family:'Space Mono',monospace;font-size:13px;">$4–$9</span>
+            </div>
+          </td>
+          <td><span class="pill low">LOW</span></td>
+          <td><span class="pill low">VERY HIGH</span></td>
+          <td>High traffic, low ad value</td>
+        </tr>
+        <tr>
+          <td><div class="niche-name">🎮 Gaming</div></td>
+          <td>
+            <div class="rpm-bar-wrap">
+              <div class="rpm-bar"><div class="rpm-fill" style="width:20%;background:var(--muted);"></div></div>
+              <span style="color:var(--muted);font-family:'Space Mono',monospace;font-size:13px;">$2–$6</span>
+            </div>
+          </td>
+          <td><span class="pill low">LOW</span></td>
+          <td><span class="pill low">HIGH</span></td>
+          <td>Young demo, low buying intent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Centered Header Leaderboard (728x90) - Slot 3 -->
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0;">
+  <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+    [ Active Adsterra Leaderboard - Slot 3 ]
+  </span>
+  <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="fade-in">
+    <div class="section-tag">Action Plan</div>
+    <h2 class="section-title">Step-by-Step<br>Roadmap</h2>
+    <p class="section-desc">Follow these steps in order. Most people who fail skip steps 1–3 and wonder why their ads earn nothing.</p>
+  </div>
+
+  <div class="steps fade-in">
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <h4>Pick a High-RPM Niche</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 1) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Finance, health, legal, or tech. Don't chase passion — chase intent. Advertisers pay for visitors who are about to spend money. A finance blog with 5k visitors beats a food blog with 50k visitors in ad revenue.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 1) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">Finance</span><span class="tag">Health</span><span class="tag">Legal</span><span class="tag">SaaS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <h4>Build SEO-First Content</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 2) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Target long-tail keywords with buying intent: "best credit card for students 2026", "personal injury lawyer cost", "cheapest health insurance plan." Each article is an asset that earns while you sleep. Aim for 50+ articles before monetizing.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 2) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">Long-tail SEO</span><span class="tag">Buying intent</span><span class="tag">50+ articles</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Header Leaderboard (728x90) - Slot 7 -->
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px 0 30px;">
+      <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+        [ Active Adsterra Leaderboard - Slot 7 ]
+      </span>
+      <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+        <script>
+          atOptions = {
+            'key' : '8310950c7541eab88b09554be5184029',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <h4>Drive US/UK/CA/AU Traffic</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 3) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Ad networks pay 5–20× more for English-speaking Western traffic. Indian or Southeast Asian traffic brings CPMs under $0.50. Use Pinterest, Google SEO, and Reddit to attract the right visitors before applying to ad networks.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 3) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">USA traffic</span><span class="tag">UK / CA / AU</span><span class="tag">Google SEO</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <h4>Apply to Premium Ad Networks</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 4) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Start with Google AdSense (any size). Once you hit 50k sessions/month, apply to <span class="highlight">Mediavine</span> (pays 3–5× more). At 100k pageviews try <span class="highlight">Raptive</span>. These networks optimize placements automatically to maximize your RPM.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 4) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">AdSense → Mediavine → Raptive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Header Leaderboard (728x90) - Slot 8 -->
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px 0 30px;">
+      <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+        [ Active Adsterra Leaderboard - Slot 8 ]
+      </span>
+      <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+        <script>
+          atOptions = {
+            'key' : '8310950c7541eab88b09554be5184029',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+      <div class="step-num">05</div>
+      <div>
+        <h4>Optimize Ad Placements</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 5) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Place your best ad (300×250 or 336×280) directly after your first paragraph — it sees 100% of readers. Add a sticky sidebar and a mobile sticky footer. These three zones alone account for 60–70% of total ad revenue on most sites.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 5) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">Post-paragraph #1</span><span class="tag">Sticky sidebar</span><span class="tag">Mobile footer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step">
+      <div class="step-num">06</div>
+      <div>
+        <h4>Stack Affiliate Income</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 6) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>For every article, find a relevant affiliate product. Finance: credit card links (up to $200/approval). Health: supplement affiliate programs (30–40% commission). Tech: software (recurring 20–30% commission). One good article can earn $500+/month in affiliate alone.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 6) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">Amazon Associates</span><span class="tag">ShareASale</span><span class="tag">Impact</span><span class="tag">CJ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Header Leaderboard (728x90) - Slot 9 -->
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px 0 30px;">
+      <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+        [ Active Adsterra Leaderboard - Slot 9 ]
+      </span>
+      <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+        <script>
+          atOptions = {
+            'key' : '8310950c7541eab88b09554be5184029',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step">
+      <div class="step-num">07</div>
+      <div>
+        <h4>Build Email List & Sell Directly</h4>
+        
+        <!-- Standard 468x60 Banner (Roadmap Step 7) -->
+        <div style="margin: 10px 0 15px; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 468px; height: 60px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : 'f5cdd8a153dc16903733dd4ee6eb94b0',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f5cdd8a153dc16903733dd4ee6eb94b0/invoke.js"></script>
+          </div>
+        </div>
+
+        <p>Add a lead magnet (free ebook, checklist, calculator). Email subscribers are worth $1–3/month each. A list of 5,000 people = $5,000–$15,000/month from sponsored emails, affiliate promos, and your own digital products — with <span class="green-text">zero ad network fees</span>.</p>
+        
+        <!-- Medium Rectangle 300x250 (Roadmap Step 7) -->
+        <div style="margin: 15px 0; width: 100%; display: flex; justify-content: flex-start;">
+          <div style="width: 300px; height: 250px; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(245, 200, 66, 0.01);">
+            <script>
+              atOptions = {
+                'key' : '81038345ce39f3f91c0605f7ae85d8a0',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/81038345ce39f3f91c0605f7ae85d8a0/invoke.js"></script>
+          </div>
+        </div>
+
+        <div class="step-tags">
+          <span class="tag">ConvertKit</span><span class="tag">MailerLite</span><span class="tag">Lead Magnet</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Header Leaderboard (728x90) - Slot 10 -->
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0 10px;">
+      <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+        [ Active Adsterra Leaderboard - Slot 10 ]
+      </span>
+      <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+        <script>
+          atOptions = {
+            'key' : '8310950c7541eab88b09554be5184029',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- QUICK TIPS -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Pro Tips</div>
+    <h2 class="section-title">Maximize<br>Every Visit</h2>
+  </div>
+  <div class="cards-grid fade-in">
+    <div class="rev-card" style="--card-accent:#38bdf8;">
+      <span class="icon">⚡</span>
+      <h3>Page Speed Matters</h3>
+      <p>A 1-second delay = 7% drop in conversions. Faster pages rank higher, retain more visitors, and earn more ad impressions. Use a CDN and compress images.</p>
+    </div>
+    <div class="rev-card" style="--card-accent:#f472b6;">
+      <span class="icon">📱</span>
+      <h3>Mobile = 65% of Traffic</h3>
+      <p>Mobile sticky bottom ads earn $6–$20 CPM vs $2–$4 for desktop banners. Always test your site on mobile first and optimize for it.</p>
+    </div>
+    <div class="rev-card" style="--card-accent:var(--gold);">
+      <span class="icon">🔄</span>
+      <h3>Update Old Articles</h3>
+      <p>"Best [X] in 2026" articles get refreshed every year, bringing back old traffic. Google rewards fresh content with higher rankings and more impressions.</p>
+    </div>
+    <div class="rev-card" style="--card-accent:var(--green);">
+      <span class="icon">🌍</span>
+      <h3>Target Q4 (Oct–Dec)</h3>
+      <p>Advertisers spend 40–60% of their annual budget in Q4. RPMs can double or triple. Plan your best content for the fall push.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Centered Header Leaderboard (728x90) - Slot 6 -->
+<div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0;">
+  <span style="font-family:'Space Mono', monospace; font-size:8px; color:var(--gold); font-weight:700; text-align:center; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">
+    [ Active Adsterra Leaderboard - Slot 6 ]
+  </span>
+  <div style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border); border-radius: 6px; background: rgba(245, 200, 66, 0.01); padding: 10px;">
+    <script>
+      atOptions = {
+        'key' : '8310950c7541eab88b09554be5184029',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/8310950c7541eab88b09554be5184029/invoke.js"></script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>MoneyFlow Hub</strong>
+  <p style="margin-top:12px;">Your complete blueprint for building an ad-revenue optimized website — one page, full picture.</p>
+  <p style="margin-top:8px; font-size:11px;">For informational purposes. RPM and income figures are industry averages and may vary.</p>
+</footer>
+
+<!-- ===================== 5. AD_STICKY_FOOTER (Active Ad Unit) ===================== -->
+<div class="ad-sticky-footer" id="ad-sticky-footer" style="border-top: 1px solid var(--border);">
+  <!-- Centered Active Ad Unit -->
+  <div style="width: 320px; height: 50px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+    <script>
+      atOptions = {
+        'key' : 'bf287e3ffc1f6bf298eded384df3990f',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/bf287e3ffc1f6bf298eded384df3990f/invoke.js"></script>
+  </div>
+  
+  <!-- Absolute Positioned Close Button to bypass iframe overlays -->
+  <button id="ad-sticky-close" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(18,18,24,0.85); border: 1px solid var(--border); color: var(--gold); border-radius: 6px; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 101;" aria-label="Close Advertisement" title="Close Ad">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</div>
+
+<!-- =========================================================================
+     VANILLA JS SCRIPTS: CALCULATOR SYSTEMS & LAYOUT MODULES
+     ========================================================================= -->
+<script>
+  // Navigation Mobile Menu Toggle
+  const hamburgerBtn = document.getElementById('mobile-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  hamburgerBtn.addEventListener('click', () => {
+    const isFlex = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = isFlex ? 'none' : 'flex';
+  });
+
+  function toggleMobileMenu() {
+    mobileMenu.style.display = 'none';
+  }
+
+  // Sticky footer close action
+  const stickyAd = document.getElementById('ad-sticky-footer');
+  const stickyClose = document.getElementById('ad-sticky-close');
+  if (stickyClose && stickyAd) {
+    stickyClose.addEventListener('click', () => {
+      stickyAd.classList.add('dismissed');
+    });
+  }
+
+  // Scroll animations observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Tool Suite Tab Switcher
+  function selectSuiteTab(tabId) {
+    const panels = document.querySelectorAll('.tool-panel');
+    panels.forEach(panel => {
+      panel.classList.remove('active');
+    });
+    const btns = document.querySelectorAll('.tool-tab-btn');
+    btns.forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    document.getElementById('panel-' + tabId).classList.add('active');
+    document.getElementById('btn-tab-' + tabId).classList.add('active');
+
+    // Resize/Recalculate if tab has active logic
+    if (tabId === 'converter') {
+      UnitConverter.onInput();
+    }
+  }
+
+  // ==========================================
+  // Tool 3: Revenue Traffic Estimator Calculator
+  // ==========================================
+  function calcUpdate() {
+    const visitors = parseInt(document.getElementById('visitorRange').value);
+    const rpm = parseInt(document.getElementById('rpmRange').value);
+    const pages = parseFloat(document.getElementById('pagesRange').value);
+    const mult = parseFloat(document.getElementById('affMult').value);
+
+    document.getElementById('visitorVal').textContent = visitors.toLocaleString() + ' visitors/mo';
+    document.getElementById('rpmVal').textContent = '$' + rpm + ' RPM';
+    document.getElementById('pagesVal').textContent = pages + ' pages/visit';
+
+    const pageviews = visitors * pages;
+    const monthlyAds = (pageviews / 1000) * rpm;
+    const monthly = monthlyAds * mult;
+    const daily = monthly / 30;
+    const yearly = monthly * 12;
+
+    document.getElementById('dailyIncome').textContent = '$' + Math.round(daily).toLocaleString();
+    document.getElementById('monthlyIncome').textContent = '$' + Math.round(monthly).toLocaleString();
+    document.getElementById('yearlyIncome').textContent = '$' + Math.round(yearly).toLocaleString();
+  }
+
+  calcUpdate();
+
+  // Smooth scroll anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior:'smooth' });
+    });
+  });
+
+  // ==========================================
+  // Tool 1: Crypto Mining Yield Calculator Script
+  // ==========================================
+  const CryptoCalculator = (() => {
+    const COINS = {
+      bitcoin: {
+        name: 'Bitcoin',
+        symbol: 'BTC',
+        difficulty: 55e12,
+        blockReward: 3.125,
+        defaultPrice: 68000,
+        diffMultiplier: Math.pow(2, 32)
+      },
+      'ethereum-classic': {
+        name: 'Ethereum Classic',
+        symbol: 'ETC',
+        difficulty: 3.5e15,
+        blockReward: 3.2,
+        defaultPrice: 28,
+        diffMultiplier: 1
+      },
+      litecoin: {
+        name: 'Litecoin',
+        symbol: 'LTC',
+        difficulty: 2.8e7,
+        blockReward: 6.25,
+        defaultPrice: 85,
+        diffMultiplier: Math.pow(2, 32)
+      },
+      monero: {
+        name: 'Monero',
+        symbol: 'XMR',
+        difficulty: 3.0e11,
+        blockReward: 0.6,
+        defaultPrice: 165,
+        diffMultiplier: 1
+      },
+      ravencoin: {
+        name: 'Ravencoin',
+        symbol: 'RVN',
+        difficulty: 1.2e10,
+        blockReward: 2500,
+        defaultPrice: 0.025,
+        diffMultiplier: Math.pow(2, 32)
+      }
+    };
+
+    const $ = id => document.getElementById(id);
+
+    function getVal(id) {
+      const el = $(id);
+      if (!el) return 0;
+      const v = parseFloat(el.value);
+      return isNaN(v) ? 0 : v;
+    }
+
+    function formatUSD(val, min = 2, max = 4) {
+      if (Math.abs(val) < 0.01 && val !== 0) {
+        return '$' + val.toLocaleString('en-US', { minimumFractionDigits: max, maximumFractionDigits: max });
+      }
+      return '$' + val.toLocaleString('en-US', { minimumFractionDigits: min, maximumFractionDigits: min });
+    }
+
+    function formatCoins(val, sym) {
+      let dec = 5;
+      if (Math.abs(val) >= 100) dec = 2;
+      return val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: dec }) + ' ' + sym;
+    }
+
+    function onCoinChange() {
+      const key = $('crypto-coin-select').value;
+      const coin = COINS[key];
+      if (!coin) return;
+
+      $('crypto-difficulty').value = coin.difficulty;
+      $('crypto-block-reward').value = coin.blockReward;
+      $('crypto-coin-price').value = coin.defaultPrice;
+    }
+
+    function calculateCrypto() {
+      const key = $('crypto-coin-select').value;
+      const coin = COINS[key];
+      if (!coin) return;
+
+      const hashRaw = getVal('crypto-hashrate');
+      const multiplier = parseFloat($('crypto-hashrate-unit').value) || 1;
+      const hashrate = hashRaw * multiplier; // H/s
+
+      const watts = getVal('crypto-power');
+      const powerCost = getVal('crypto-elec-cost');
+      const poolFee = getVal('crypto-pool-fee');
+      const coinPrice = getVal('crypto-coin-price');
+      const difficulty = getVal('crypto-difficulty');
+      const reward = getVal('crypto-block-reward');
+
+      if (hashrate <= 0 || difficulty <= 0) return;
+
+      // Yield Formulas
+      const coinsDaily = (hashrate * reward * 86400) / (difficulty * coin.diffMultiplier);
+      const revDaily = coinsDaily * coinPrice;
+
+      const powerDaily = (watts / 1000) * powerCost * 24;
+      const feeDaily = revDaily * (poolFee / 100);
+
+      const netDaily = revDaily - powerDaily - feeDaily;
+
+      // Outputs gross
+      $('crypto-rev-daily').textContent = formatUSD(revDaily);
+      $('crypto-rev-weekly').textContent = formatUSD(revDaily * 7);
+      $('crypto-rev-monthly').textContent = formatUSD(revDaily * 30);
+      $('crypto-rev-yearly').textContent = formatUSD(revDaily * 365);
+
+      // Power displays
+      $('crypto-power-daily').textContent = '-' + formatUSD(powerDaily);
+      $('crypto-power-weekly').textContent = '-' + formatUSD(powerDaily * 7);
+      $('crypto-power-monthly').textContent = '-' + formatUSD(powerDaily * 30);
+
+      // Fee display
+      $('crypto-fee-daily').textContent = '-' + formatUSD(feeDaily);
+      $('crypto-fee-weekly').textContent = '-' + formatUSD(feeDaily * 7);
+      $('crypto-fee-monthly').textContent = '-' + formatUSD(feeDaily * 30);
+
+      // Net take-home
+      setNetValue('crypto-net-daily', netDaily);
+      setNetValue('crypto-net-weekly', netDaily * 7);
+      setNetValue('crypto-net-monthly', netDaily * 30);
+      setNetValue('crypto-net-yearly', netDaily * 365);
+
+      // Break-even
+      const coinsNet = coinsDaily * (1 - (poolFee / 100));
+      const breakEvenPrice = coinsNet > 0 ? powerDaily / coinsNet : Infinity;
+
+      if (breakEvenPrice === Infinity || isNaN(breakEvenPrice)) {
+        $('crypto-breakeven-price').textContent = 'N/A';
+        $('crypto-breakeven-hint').textContent = 'No coins produced';
+      } else {
+        $('crypto-breakeven-price').textContent = formatUSD(breakEvenPrice, 2, 6);
+        if (coinPrice >= breakEvenPrice) {
+          $('crypto-breakeven-hint').textContent = '✅ Operating Profitably';
+          $('crypto-breakeven-hint').style.color = 'var(--green)';
+        } else {
+          $('crypto-breakeven-hint').textContent = '⚠️ Operating at Loss';
+          $('crypto-breakeven-hint').style.color = 'var(--red)';
+        }
+      }
+
+      $('crypto-coins-mined').textContent = formatCoins(coinsDaily, coin.symbol);
+      $('crypto-results-coin-badge').textContent = coin.symbol;
+
+      // Reveal results section
+      const resultsEl = $('crypto-results');
+      resultsEl.classList.remove('results-hidden');
+      resultsEl.style.maxHeight = '2000px';
+      resultsEl.style.opacity = '1';
+    }
+
+    function setNetValue(id, val) {
+      const el = $(id);
+      if (!el) return;
+      const prefix = val >= 0 ? '+' : '';
+      el.textContent = prefix + formatUSD(val);
+      el.className = `yield-val ${val >= 0 ? 'plus' : 'minus'}`;
+    }
+
+    function init() {
+      onCoinChange();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+
+    return {
+      onCoinChange,
+      calculateCrypto
+    };
+  })();
+
+  // ==========================================
+  // Tool 2: Advanced Multi-Unit Converter Script
+  // ==========================================
+  const UnitConverter = (() => {
+    const CATEGORIES = {
+      length: {
+        name: 'Length',
+        icon: '📏',
+        units: {
+          mm: { label: 'Millimeters (mm)', factor: 0.001 },
+          cm: { label: 'Centimeters (cm)', factor: 0.01 },
+          m: { label: 'Meters (m)', factor: 1 },
+          km: { label: 'Kilometers (km)', factor: 1000 },
+          inch: { label: 'Inches (in)', factor: 0.0254 },
+          foot: { label: 'Feet (ft)', factor: 0.3048 },
+          yard: { label: 'Yards (yd)', factor: 0.9144 },
+          mile: { label: 'Miles (mi)', factor: 1609.344 },
+          nmi: { label: 'Nautical Miles (nmi)', factor: 1852 }
+        }
+      },
+      weight: {
+        name: 'Weight',
+        icon: '⚖️',
+        units: {
+          mg: { label: 'Milligrams (mg)', factor: 0.001 },
+          g: { label: 'Grams (g)', factor: 1 },
+          kg: { label: 'Kilograms (kg)', factor: 1000 },
+          ton: { label: 'Tons (t)', factor: 1000000 },
+          oz: { label: 'Ounces (oz)', factor: 28.349523125 },
+          lb: { label: 'Pounds (lb)', factor: 453.59237 },
+          stone: { label: 'Stone (st)', factor: 6350.29318 }
+        }
+      },
+      temperature: {
+        name: 'Temperature',
+        icon: '🌡️',
+        units: {
+          C: { label: 'Celsius (°C)', type: 'temp' },
+          F: { label: 'Fahrenheit (°F)', type: 'temp' },
+          K: { label: 'Kelvin (K)', type: 'temp' }
+        }
+      },
+      data: {
+        name: 'Data Size',
+        icon: '💾',
+        units: {
+          bit: { label: 'Bits (b)', factor: 0.125 },
+          B: { label: 'Bytes (B)', factor: 1 },
+          KB: { label: 'Kilobytes (KB)', factor: 1024 },
+          MB: { label: 'Megabytes (MB)', factor: 1024 * 1024 },
+          GB: { label: 'Gigabytes (GB)', factor: 1024 * 1024 * 1024 },
+          TB: { label: 'Terabytes (TB)', factor: Math.pow(1024, 4) },
+          PB: { label: 'Petabytes (PB)', factor: Math.pow(1024, 5) }
+        }
+      },
+      speed: {
+        name: 'Speed',
+        icon: '⚡',
+        units: {
+          'm/s': { label: 'Meters/sec (m/s)', factor: 1 },
+          'km/h': { label: 'Kilometers/hour (km/h)', factor: 1 / 3.6 },
+          mph: { label: 'Miles/hour (mph)', factor: 0.44704 },
+          knots: { label: 'Knots (kn)', factor: 0.514444 },
+          mach: { label: 'Mach (Sound)', factor: 340.29 }
+        }
+      },
+      time: {
+        name: 'Time',
+        icon: '⏱️',
+        units: {
+          ms: { label: 'Milliseconds (ms)', factor: 0.001 },
+          s: { label: 'Seconds (s)', factor: 1 },
+          min: { label: 'Minutes (min)', factor: 60 },
+          hr: { label: 'Hours (h)', factor: 3600 },
+          day: { label: 'Days (d)', factor: 86400 },
+          wk: { label: 'Weeks (wk)', factor: 604800 },
+          mo: { label: 'Months (mo)', factor: 2592000 },
+          yr: { label: 'Years (yr)', factor: 31536000 }
+        }
+      },
+      area: {
+        name: 'Area',
+        icon: '📐',
+        units: {
+          mm2: { label: 'Sq Millimeters (mm²)', factor: 1e-6 },
+          cm2: { label: 'Sq Centimeters (cm²)', factor: 0.0001 },
+          m2: { label: 'Sq Meters (m²)', factor: 1 },
+          km2: { label: 'Sq Kilometers (km²)', factor: 1000000 },
+          in2: { label: 'Sq Inches (in²)', factor: 0.00064516 },
+          ft2: { label: 'Sq Feet (ft²)', factor: 0.09290304 },
+          acre: { label: 'Acres (ac)', factor: 4046.8564224 },
+          hectare: { label: 'Hectares (ha)', factor: 10000 }
+        }
+      },
+      volume: {
+        name: 'Volume',
+        icon: '🧪',
+        units: {
+          mL: { label: 'Milliliters (mL)', factor: 0.001 },
+          L: { label: 'Liters (L)', factor: 1 },
+          gal_us: { label: 'Gallons (US gal)', factor: 3.785411784 },
+          gal_uk: { label: 'Gallons (UK gal)', factor: 4.54609 },
+          cup: { label: 'Cups (cup)', factor: 0.2365882365 },
+          tbsp: { label: 'Tablespoons (tbsp)', factor: 0.014786764781 },
+          tsp: { label: 'Teaspoons (tsp)', factor: 0.0049289215937 },
+          m3: { label: 'Cubic Meters (m³)', factor: 1000 }
+        }
+      },
+      currency: {
+        name: 'Forex/Crypto',
+        icon: '🪙',
+        units: {
+          USD: { label: 'US Dollar (USD)', factor: 1 },
+          BTC: { label: 'Bitcoin (BTC)', factor: 68000 },
+          ETH: { label: 'Ethereum (ETH)', factor: 3800 },
+          SOL: { label: 'Solana (SOL)', factor: 175 },
+          ADA: { label: 'Cardano (ADA)', factor: 0.45 },
+          DOT: { label: 'Polkadot (DOT)', factor: 6.8 },
+          USDT: { label: 'Tether (USDT)', factor: 1 }
+        }
+      }
+    };
+
+    let activeCat = 'length';
+    let history = [];
+
+    function init() {
+      const catContainer = document.getElementById('converter-cats');
+      if (!catContainer) return;
+
+      catContainer.innerHTML = '';
+      Object.keys(CATEGORIES).forEach(key => {
+        const cat = CATEGORIES[key];
+        const activeClass = key === activeCat ? 'active' : '';
+        const btn = document.createElement('button');
+        btn.className = `pill-btn ${activeClass}`;
+        btn.innerHTML = `<span>${cat.icon}</span> ${cat.name}`;
+        btn.onclick = () => switchCategory(key);
+        catContainer.appendChild(btn);
+      });
+
+      populateDropdowns();
+    }
+
+    function switchCategory(key) {
+      activeCat = key;
+      init();
+
+      const units = Object.keys(CATEGORIES[key].units);
+      document.getElementById('convert-from-unit').value = units[0];
+      document.getElementById('convert-to-unit').value = units[1] || units[0];
+
+      onInput();
+    }
+
+    function populateDropdowns() {
+      const fromSelect = document.getElementById('convert-from-unit');
+      const toSelect = document.getElementById('convert-to-unit');
+      if (!fromSelect || !toSelect) return;
+
+      const prevFrom = fromSelect.value;
+      const prevTo = toSelect.value;
+
+      fromSelect.innerHTML = '';
+      toSelect.innerHTML = '';
+
+      const units = CATEGORIES[activeCat].units;
+      Object.keys(units).forEach(uKey => {
+        const option1 = document.createElement('option');
+        option1.value = uKey;
+        option1.textContent = units[uKey].label;
+
+        const option2 = option1.cloneNode(true);
+        fromSelect.appendChild(option1);
+        toSelect.appendChild(option2);
+      });
+
+      if (units[prevFrom]) fromSelect.value = prevFrom;
+      if (units[prevTo]) toSelect.value = prevTo;
+    }
+
+    function swapUnits() {
+      const fromSelect = document.getElementById('convert-from-unit');
+      const toSelect = document.getElementById('convert-to-unit');
+      const fromInput = document.getElementById('convert-from');
+      const toInput = document.getElementById('convert-to');
+
+      const temp = fromSelect.value;
+      fromSelect.value = toSelect.value;
+      toSelect.value = temp;
+
+      const parsedVal = parseFloat(toInput.value.replace(/,/g, ''));
+      if (!isNaN(parsedVal)) {
+        fromInput.value = parsedVal;
+      }
+
+      onInput();
+    }
+
+    function convert(value, from, to) {
+      if (from === to) return value;
+      const cat = CATEGORIES[activeCat];
+
+      if (activeCat === 'temperature') {
+        let celsius = 0;
+        if (from === 'C') celsius = value;
+        else if (from === 'F') celsius = (value - 32) * 5/9;
+        else if (from === 'K') celsius = value - 273.15;
+
+        if (to === 'C') return celsius;
+        else if (to === 'F') return (celsius * 9/5) + 32;
+        else if (to === 'K') return celsius + 273.15;
+      }
+
+      const fromFactor = cat.units[from].factor;
+      const toFactor = cat.units[to].factor;
+
+      return (value * fromFactor) / toFactor;
+    }
+
+    let debounceTimer;
+
+    function onInput() {
+      const fromInput = document.getElementById('convert-from');
+      const toInput = document.getElementById('convert-to');
+      const fromSelect = document.getElementById('convert-from-unit');
+      const toSelect = document.getElementById('convert-to-unit');
+
+      if (!fromInput || !toInput || !fromSelect || !toSelect) return;
+
+      const value = parseFloat(fromInput.value);
+      if (isNaN(value)) {
+        toInput.value = '';
+        return;
+      }
+
+      const from = fromSelect.value;
+      const to = toSelect.value;
+      const converted = convert(value, from, to);
+
+      let formatted = '';
+      if (converted === 0) {
+        formatted = '0';
+      } else if (Math.abs(converted) < 1e-4) {
+        formatted = converted.toExponential(5);
+      } else {
+        formatted = converted.toLocaleString('en-US', {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 6
+        });
+      }
+
+      toInput.value = formatted;
+
+      const formulaEl = document.getElementById('conversion-formula');
+      if (formulaEl) {
+        const fromLabel = getShortLabel(from);
+        const toLabel = getShortLabel(to);
+        const ratioVal = convert(1, from, to);
+
+        let ratioStr = '';
+        if (Math.abs(ratioVal) < 1e-4) {
+          ratioStr = ratioVal.toExponential(4);
+        } else {
+          ratioStr = ratioVal.toLocaleString('en-US', { maximumFractionDigits: 6 });
+        }
+        formulaEl.textContent = `Formula Ratio: 1 ${fromLabel} = ${ratioStr} ${toLabel}`;
+      }
+
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        addToHistory(value, from, converted, to);
+      }, 1000);
+    }
+
+    function getShortLabel(key) {
+      const label = CATEGORIES[activeCat].units[key].label;
+      const match = label.match(/\((.*?)\)/);
+      return match ? match[1] : key;
+    }
+
+    function addToHistory(value, from, result, to) {
+      if (value === 0 || isNaN(value)) return;
+
+      const fromLabel = getShortLabel(from);
+      const toLabel = getShortLabel(to);
+
+      const text = `${value.toLocaleString('en-US')} ${fromLabel} ➔ ${result.toLocaleString('en-US', { maximumFractionDigits: 4 })} ${toLabel}`;
+
+      if (history.length > 0 && history[0] === text) return;
+
+      history.unshift(text);
+      if (history.length > 5) history.pop();
+
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const list = document.getElementById('conversion-history-list');
+      if (!list) return;
+
+      if (history.length === 0) {
+        list.innerHTML = `<span style="font-size:11px; text-style:italic; color:var(--muted);">No conversions saved. Complete conversions to save chips.</span>`;
+        return;
+      }
+
+      list.innerHTML = '';
+      history.forEach(item => {
+        const chip = document.createElement('div');
+        chip.style.cssText = 'font-size:10px; font-family:"Space Mono", monospace; padding:5px 10px; border-radius:6px; background:var(--dark); border:1px solid var(--border); color:var(--text); display:flex; align-items:center; gap:6px;';
+        chip.innerHTML = `<span style="width:5px; height:5px; border-radius:50%; background:var(--gold);"></span>${item}`;
+        list.appendChild(chip);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      setTimeout(onInput, 100);
+    });
+
+    return {
+      onInput,
+      swapUnits,
+      switchCategory
+    };
+  })();
+</script>
+
+<!-- ===================== FLOATING SOCIAL_BAR / IN-PAGE PUSH PLACEMENT ===================== -->
+<div class="ad-placeholder" id="ad-social-bar" style="position: fixed; bottom: 80px; right: 20px; width: 270px; height: 115px; border: 2px dashed rgba(245,200,66,0.5); background: rgba(13,13,18,0.96); border-radius: 12px; z-index: 98; padding: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; transition: transform 0.4s ease, opacity 0.4s ease;">
+  <div style="display:flex; align-items:center; justify-content:space-between; width:100%; margin-bottom:8px;">
+    <div style="display:flex; align-items:center; gap:6.5px;">
+      <span style="font-size:14px; animation: pulse 2s infinite;">💬</span>
+      <span style="font-family:'Space Mono', monospace; font-size:10px; color:var(--gold); font-weight:700;">[ SOCIAL_BAR / IN-PAGE PUSH ]</span>
+    </div>
+    <button onclick="dismissSocialBar()" style="background:none; border:none; color:var(--muted); cursor:pointer; display:flex; align-items:center;" aria-label="Close Ad">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div style="font-size:9.5px; color:var(--muted); line-height:1.45; width:100%;">
+    High-CPM In-Page Push Floating Social Banner. Simulates organic chat boxes.
+  </div>
+  <span style="position: absolute; bottom: 4px; right: 8px; text-transform: uppercase; font-family:'Space Mono', monospace; font-size: 7px; color: rgba(245, 200, 66, 0.4);">Promoted Link</span>
+</div>
+
+<script>
+  // Close Social Bar float action
+  function dismissSocialBar() {
+    const bar = document.getElementById('ad-social-bar');
+    if (bar) {
+      bar.style.transform = 'translateY(150%) scale(0.9)';
+      bar.style.opacity = '0';
+      setTimeout(() => { bar.style.display = 'none'; }, 400);
+    }
+  }
+
+  /* =============================================================
+     MONETIZATION CODE INTEGRATION HOOKS (popunder, smartlink, etc)
+     ============================================================= */
+  // 1. POPUNDER SCRIPT HOOK: Drops popunder on body double-clicks
+  // (You can paste your Popunder script tags here).
+  
+  // 2. SMARTLINK DIRECT LINKS: Set the target href for any smartlink triggers.
+  const SMARTLINK_URL = "https://www.effectivecpmnetwork.com/ptqyp8a7?key=d2c086cf0902ddc54dd902d059e5ff24"; // Replace with your high-CPM smartlink redirect URL
+  document.querySelectorAll('.smartlink-trigger').forEach(el => {
+    el.href = SMARTLINK_URL;
+  });
+</script>
+<script src="https://pl29559839.effectivecpmnetwork.com/36/0e/4a/360e4aa362757a11ee2f2013663abd42.js"></script>
+</body>
+</html>
