@@ -1005,6 +1005,60 @@
       .step { grid-template-columns: 1fr; }
       .step-num { font-size: 36px; text-align: left; }
     }
+
+    /* ===== UTILITY CLASSES (replacing broken Tailwind refs) ===== */
+    .ad-top-wrapper {
+      width: 100%;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+      position: relative;
+    }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .w-full { width: 100%; }
+    .relative { position: relative; }
+    .p-8 { padding: 32px; }
+    .results-hidden {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .sponsored-label {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #475569;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* Responsive grid helpers (replace invalid sm:/md: inline syntax) */
+    .grid-responsive-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .grid-responsive-converter {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    @media (min-width: 640px) {
+      .grid-responsive-2col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 768px) {
+      .grid-responsive-converter {
+        grid-template-columns: 9fr 1fr 9fr;
+      }
+    }
   </style>
   <script src="https://pl29559836.effectivecpmnetwork.com/13/42/e0/1342e07f68747224f95f47885f6914f8.js"></script>
 </head>
@@ -1067,7 +1121,7 @@
 <hr class="divider">
 
 <!-- [AD_TOP_LEADERBOARD] Active Ad Unit -->
-<div class="w-full py-6 px-4 flex justify-center z-10 relative">
+<div class="ad-top-wrapper">
   <div id="ad-top-leaderboard" style="width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center;">
     <script>
       atOptions = {
@@ -1368,7 +1422,7 @@
         <div style="display: flex; flex-direction: column; gap: 24px;">
           <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
             
-            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="grid-responsive-2col">
               <!-- Coin selector -->
               <div class="calc-input-group">
                 <label>🪙 Selected Asset</label>
@@ -1397,7 +1451,7 @@
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="grid-responsive-2col">
               <!-- Power -->
               <div class="calc-input-group">
                 <label>🔌 Power Consumption (W)</label>
@@ -1411,7 +1465,7 @@
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="grid-responsive-2col">
               <!-- Current Price -->
               <div class="calc-input-group">
                 <label>📈 Current Coin Price (USD)</label>
@@ -1461,7 +1515,7 @@
           </button>
 
           <!-- Crypto Results -->
-          <div id="crypto-results" class="results-hidden space-y-4" style="border-top:1px solid var(--border); padding-top:24px;">
+          <div id="crypto-results" class="results-hidden" style="border-top:1px solid var(--border); padding-top:24px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
               <div class="yield-group-label">
                 <span style="width: 8px; height: 8px; border-radius:50%; background:var(--blue);"></span>
@@ -1489,7 +1543,7 @@
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr; md:grid-template-columns:1fr 1fr; gap:16px; margin: 16px 0;">
+            <div class="grid-responsive-2col" style="margin: 16px 0;">
               <!-- Power costs -->
               <div class="yield-card" style="text-align:left; background: rgba(255,68,68,0.01);">
                 <div class="yield-group-label"><span style="width:6px; height:6px; border-radius:50%; background:var(--red);"></span> Power Bills</div>
@@ -1549,7 +1603,7 @@
             </div>
 
             <!-- ROI Break evens -->
-            <div style="display:grid; grid-template-columns: 1fr sm:grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px;">
+            <div class="grid-responsive-2col" style="margin-top:16px;">
               <div class="yield-card" style="display:flex; flex-direction:column; justify-content:center;">
                 <span style="font-size:11px; color:var(--muted);">Break-Even Threshold Price</span>
                 <span class="yield-val" id="crypto-breakeven-price" style="font-size:18px; margin-top:4px;">N/A</span>
@@ -1593,7 +1647,7 @@
           </div>
 
           <div class="yield-card" style="background: var(--dark3); border-color: var(--border); padding: 24px;">
-            <div style="display: grid; grid-template-columns: 1fr; md:grid-template-columns: 9fr 1fr 9fr; gap: 20px; align-items: center;">
+            <div class="grid-responsive-converter">
               
               <!-- Value From -->
               <div class="calc-input-group">
@@ -1993,7 +2047,7 @@
     <div style="width: 100%; min-height: 220px; overflow: hidden;">
       <iframe srcdoc="<!DOCTYPE html><html><head><style>body { margin: 0; background: transparent; }</style></head><body><script async='async' data-cfasync='false' src='https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js'></script><div id='container-2c63d1892f0f4cdfa097843b6668d8af'></div></body></html>" style="width: 100%; border: none; min-height: 220px; overflow: hidden; background: transparent;" scrolling="no"></iframe>
     </div>
-    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+    <span class="sponsored-label">Sponsored Feed</span>
   </div>
 </section>
 
@@ -2014,7 +2068,7 @@
     <div style="width: 100%; min-height: 220px; overflow: hidden;">
       <iframe srcdoc="<!DOCTYPE html><html><head><style>body { margin: 0; background: transparent; }</style></head><body><script async='async' data-cfasync='false' src='https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js'></script><div id='container-2c63d1892f0f4cdfa097843b6668d8af'></div></body></html>" style="width: 100%; border: none; min-height: 220px; overflow: hidden; background: transparent;" scrolling="no"></iframe>
     </div>
-    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+    <span class="sponsored-label">Sponsored Feed</span>
   </div>
 </section>
 
@@ -2035,7 +2089,7 @@
     <div style="width: 100%; min-height: 220px; overflow: hidden;">
       <iframe srcdoc="<!DOCTYPE html><html><head><style>body { margin: 0; background: transparent; }</style></head><body><script async='async' data-cfasync='false' src='https://pl29559837.effectivecpmnetwork.com/2c63d1892f0f4cdfa097843b6668d8af/invoke.js'></script><div id='container-2c63d1892f0f4cdfa097843b6668d8af'></div></body></html>" style="width: 100%; border: none; min-height: 220px; overflow: hidden; background: transparent;" scrolling="no"></iframe>
     </div>
-    <span class="absolute top-2 right-3 text-[8px] font-bold text-slate-600 tracking-widest uppercase" style="font-family:'Space Mono', monospace;">Sponsored Feed</span>
+    <span class="sponsored-label">Sponsored Feed</span>
   </div>
 </section>
 
@@ -8789,7 +8843,12 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior:'smooth' });
+      const targetId = a.getAttribute('href');
+      if (targetId === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      document.querySelector(targetId)?.scrollIntoView({ behavior:'smooth' });
     });
   });
 
